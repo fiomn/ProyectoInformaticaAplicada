@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Profits";
+}
+
+<h2 class="mt-4 text-center">Utilidades</h2>
+
+<div class="d-flex flex-column align-items-center justify-content-center">
+
+    <div class="d-flex flex-row">
+        <div id="div_filter_date" class="col-md-7 m-2">
+            <span class="text-black">Fecha de Inicio del Periodo</span>
+            <input placeholder="Fecha Inicio" type="date" id="filter_date" class="form-control">
+        </div>
+        <div id="div_filter_date" class="col-md-7 m-2">
+            <span class="text-black">Fecha Final del Periodo</span>
+            <input placeholder="Fecha Final" type="date" id="filter_date" class="form-control">
+        </div>
+    </div>
+    <br />
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th class="col-md-6">Descripción</th>
+                <th class="col-md-2 text-center">Gastos</th>
+                <th class="col-md-2 text-center">Ingresos</th>
+                <th class="col-md-2 text-center">Totales</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Ingresos por Servicios</strong></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+            </tr>
+            <tr>
+                <td>Ingreso por Consultoria de Software</td>
+                <td class="text-center"></td>
+                <td class="text-center">20000000</td>
+                <td class="text-center"></td>
+            </tr>
+            <tr class="border-top">
+                <td><strong>Uitlidad Bruta</strong></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center">20000000</td>
+            </tr>
+            <tr>
+                <td><strong>Gastos Operativos</strong></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+            </tr>
+            <tr>
+                <td>Electricidad</td>
+                <td class="text-center">-130000</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+            </tr>
+            <tr>
+                <td><strong>Total de Gastos</strong></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center">-130000</td>
+            </tr>
+            <tr class="border-top">
+                <td><strong>Utilidad Antes de Impuestos</strong></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center">19870000</td>
+            </tr>
+            <tr>
+                <td>Impuesto de Renta sobre Utilidades</td>
+                <td class="text-center">-2723000</td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+            </tr>
+            <tr class="border-top">
+                <td><strong>Utilidad Neta</strong></td>
+                <td class="text-center"></td>
+                <td class="text-center"></td>
+                <td class="text-center">17057000</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-flex justify-content-center align-items-center">
+    <button type="button" class="btn btn-dark">Generar Informe</button>
+</div>

@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Services Income";
+}
+
+<h2 class="text-center m-2">Ingresos por Servicios</h2>
+
+<button type="button" class="btn btn-dark" onclick="location.href='@Url.Action("Create", "ServicesIncome")'">Añadir Ingreso</button>
+
+
+<div class="btn-group">
+    <button id="options_btn" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Filtrado de Datos
+    </button>
+    <ul class="dropdown-menu">
+        <li><a onclick="showFilter('date')" class="dropdown-item">Fecha</a></li>
+        <li><a onclick="showFilter('service')" class="dropdown-item">Servicio</a></li>
+        <li><a onclick="showFilter('client')" class=" dropdown-item">Cliente</a></li>
+    </ul>
+</div>
+
+<br /><br />
+<div class="row">
+    <div id="div_filter_date" class="col-md-4">
+        <input placeholder="Ingrese una Fecha" type="date" id="filter_date" class="form-control">
+    </div>
+    <div id="div_filter_service" class="col-md-4">
+        <input placeholder="Ingrese el Servicio" type="text" id="filter_service" class="form-control">
+    </div>
+    <div id="div_filter_client" class="col-md-4">
+        <input placeholder="Ingrese el Cliente" type="text" id="filter_client" class="form-control">
+    </div>
+</div>
+
+<br />
+<table class="table table-dark table-hover m-2">
+    <thead>
+        <!-- Encabezados de tabla para los campos de datos -->
+        <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">N. de Referencia</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Cuenta de Depósito</th>
+            <th scope="col">Forma de Pago</th>
+            <th scope="col">Servicio</th>
+            <th scope="col">Monto</th>
+            <th scope="col">IVA</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>22/10/2023</td>
+            <td>#34578901</td>
+            <td>Arcos Dorados S.A.</td>
+            <td>CR****************3490</td>
+            <td>Efectivo</td>
+            <td>Consultoria de Software</td>
+            <td>20000000</td>
+            <td>13%</td>
+            <td>
+                <button type="button" class="btn btn-light">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        function showFilter(type) {
+            $("#div_filter_date, #div_filter_service, #div_filter_client").hide();
+            
+            switch (type) {
+                case "date":
+                    $("#div_filter_date").show();
+                    $("#filter_client").val("");
+                    $("#filter_service").val("");
+                    $("#options_btn").text("Filtrado por Fecha");
+                    break;
+                case "client":
+                    $("#div_filter_client").show();
+                    $("#filter_service").val("");
+                    $("#filter_date").val("");
+                    $("#options_btn").text("Filtrado por Cliente");
+                    break;
+                case "service":
+                    $("#div_filter_service").show();
+                    $("#filter_client").val("");
+                    $("#filter_date").val("");
+                    $("#options_btn").text("Filtrado por Servicio");
+                    break;
+            }
+        }
+
+        function filter(a, b){
+            if (a.includes(b) || b === "") {
+                return true;
+            }
+            return false;
+        }
+
+        $(document).ready(function () {
+            $("#div_filter_date, #div_filter_service, #div_filter_client").hide();
+            // Al cambiar cualquier campo de filtro, aplicar el filtro
+            $("#filter_date, #filter_service, #filter_client").on("input", function () {
+                // Obtener los valores de los campos de filtro
+                var filter_date = $("#filter_date").val();
+                var formatted_date = "";
+                if(filter_date != ""){
+                    // Formatear la fecha al formato "dd/mm/yyyy"
+                    var date_parts = filter_date.split('-');
+                    if (date_parts.length === 3) {
+                        formatted_date = date_parts[2] + '/' + date_parts[1] + '/' + date_parts[0];
+                    }
+                }
+                var filter_service = $("#filter_service").val().toLowerCase(); // Convertir a minúsculas para ser insensible a mayúsculas
+                var filter_client = $("#filter_client").val().toLowerCase();
+
+                // Recorrer las filas de la tabla de datos
+                $(".table tbody tr").each(function () {
+                    var date = $(this).find("td:eq(0)").text();
+                    var service = $(this).find("td:eq(5)").text().toLowerCase();
+                    var client = $(this).find("td:eq(2)").text().toLowerCase();
+
+                    // Comprobar si la fila cumple con los criterios de filtro
+                    if (filter(date, formatted_date) && filter(service, filter_service) && filter(client, filter_client)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+}
