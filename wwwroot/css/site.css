@@ -1,63 +1,183 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
+/*css para nav bar*/
+header {
+    padding: 30px 0;
+}
+
+
+    header .container {
+        position: absolute;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    header nav a {
+        color: #F7A122;
+        text-decoration: none;
+        margin-left: 20px;
+    }
+
+        header nav a:hover,
+        header nav a.active {
+            color: #F7A122;
+        }
+
 .container {
-    display: flex; 
+    display: flex;
     align-items: center;
 }
 
 h1 {
     color: #F7A122;
+    padding-top: 10px;
     font-weight: 600;
     text-shadow: 1px 5px 3px #aaa, 0px 3px 1px rgba(0, 0, 0, 0.5), 4px 4px 5px rgba(0, 0, 0, 0.7), 0px 0px 7px rgba(0, 0, 0, 0.4);
 }
 
-h5 {
-    font-size:1em;
-    color: darkslategrey;
+#bodyIndex {
+    background-image: url("/resources/background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
+    #bodyIndex::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: -1;
+    }
+
+#imgAdmin {
+    width: 60px;
+    height: 60px;
+}
+
+h3 {
+    padding:25px;
+    display:flex;
+    align-content:center;
+}
+
+h5 {
+    font-size: 1em;
+    color: white;
+}
+
+p {
+    padding: 80px;
+    font-size: 1.5em;
+    color: white;
+    padding-left: 10px;
+}
+
+.main-container {
+    position: relative;
+    margin-bottom: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+    .main-container .cont {
+        position: relative;
+        display:flex;
+        padding-left:60px;
+        flex-direction: column;
+        justify-content:space-between;
+    }
+
+        .main-container .cont #btn {
+            position: relative;
+            width:30%;
+            height: 40px;
+            border-radius: 10px;
+            border: none;
+            background: #FFC979;
+            color: darkslategray;
+            font-size: 1em;
+            font-weight: 500;
+        }
+        .main-container .cont #client {            
+            width: 80px;
+            margin-inline:80px;
+        }
+
+    .main-container .img {
+        padding-top:30px;
+        position: relative;
+        width: 350px;
+        height: 280px;
+        display: flex;
+        flex-direction: column;
+        margin-left: 150px;
+    }
+
+/*css chat*/
+.contact-icon {
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px;
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none;
+}
+
+
 .image-container {
-    flex: 1; 
-    padding: 55px;
+    padding-left: 80px;
+    padding-bottom:150px;
 }
 
 .form-container {
-    flex: 2; 
-    padding: 30px; 
+    flex: 1;
+    padding-top: 5px;
 }
 
 #bodyLogin {
-    position:relative;
+    position: relative;
     background: rgb(103,106,106);
     background: linear-gradient(0deg, #FFC979 0%, #fff 12%);
- 
 }
 
 #bodyRegis {
-    margin-bottom: 60px;
+    position: relative;
+    background: rgb(103,106,106);
+    background: linear-gradient(0deg, #FFC979 0%, #fff 15%);
 }
 
-#imageLogin{
-    width:550px;
-    height:525px;
+#imageLogin {
+    width: 500px;
+    height: 490px;
     border-radius: 290px;
 }
 
+#sectionR {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 165%;
+}
+
 section {
-    position:relative;
+    position: relative;
     display: flex;
     justify-content: flex-end;
     width: 100%;
@@ -66,23 +186,19 @@ section {
 
 .login {
     position: relative;
-    padding: 40px;
-    width: 350px;
-    height:500px;
+    margin-left: 80px;
+    width: 390px;
     display: flex;
     flex-direction: column;
-    
 }
+
 .regis {
     position: relative;
-    padding: 60px;
-    background: rgba(0,0,0,0.1);
-    backdrop-filter: blur(8px);
-    border-radius: 10px;
+    padding: 30px;
     width: 500px;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 25px 50px rgba(0,0,0,0.8);
 }
 
     .regis h2 {
@@ -90,9 +206,9 @@ section {
         width: 100%;
         text-align: center;
         font-size: 2.3em;
-        font-weight: 500;
-        color: firebrick;
-        margin-bottom: 20px;
+        font-weight: 400;
+        color: darkslategray;
+        margin-bottom: 35px;
     }
 
 .login h2 {
@@ -101,7 +217,7 @@ section {
     text-align: center;
     font-size: 2.7em;
     font-weight: 450;
-    color: darkslategray;    
+    color: darkslategray;
     margin-bottom: 28px;
 }
 
@@ -119,8 +235,8 @@ section {
     padding: 10px 20px;
     outline: none;
     font-size: 1.2em;
-    background-color: #FFF8C0;
-    color:darkslategray;
+    background-color: linen;
+    color: darkslategray;
     border-radius: 10px;
     border: none;
     margin-bottom: 40px;
@@ -129,10 +245,11 @@ section {
 .regis .inputBoxR input {
     position: relative;
     width: 100%;
-    padding: 15px 20px;
+    padding: 10px 20px;
     outline: none;
-    font-size: 1.1em;
-    color: #8f2c24;
+    font-size: 1em;
+    background-color: linen;
+    color: darkslategray;
     border-radius: 10px;
     border: none;
     margin-bottom: 20px;
@@ -143,7 +260,7 @@ section {
 }
 
 .regis .inputBoxR input ::placeholder {
-    color: #8f2c24;
+    color: black;
 }
 
 .login .inputBox #btn {
@@ -161,13 +278,14 @@ section {
 .regis .inputBox #btn {
     position: relative;
     width: 100%;
+    height: 40px;
     border-radius: 10px;
     border: none;
-    background: #8f2c24;
-    color: #fff;
+    background: #FFC979;
+    color: darkslategray;
     font-size: 1.2em;
     font-weight: 500;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     transition: 0.3s;
 }
 
@@ -178,21 +296,22 @@ section {
 
 .login .group {
     display: flex;
-    justify-content:center;
+    justify-content: center;
 }
 
 .regis .inputBox #btn:hover {
-    background: #d64c42;
+    background: #FFD196;
 }
 
 .regis .groupP {
     display: flex;
     justify-content: center;
+    padding: 15px;
 }
 
     .regis .groupP a {
-        font-size: 1.25em;
-        color: #8f2c24;
+        font-size: 1em;
+        color: darkslategray;
         font-weight: 500;
         text-decoration: none;
     }
@@ -212,3 +331,6 @@ section {
     .login .group a:nth-child(2) {
         text-decoration: underline;
     }
+
+
+

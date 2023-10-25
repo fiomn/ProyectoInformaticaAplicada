@@ -4,9 +4,16 @@
 
 <html>
 <body id="bodyLogin">
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/Admin/ClientList/"><img src="/resources/admin.png" id="imgAdmin"></a>
+            </nav>
+        </div>
+    </header>
     <h1>SoftTech</h1>
     <div>
-        <h5>Software Services Company</h5>
+        <h6>Software Services Company</h6>
     </div>    
     <div class="container">
         <div class="image-container">
@@ -37,12 +44,12 @@
                             </div>
                         }
                         <div class="inputBox">
-                            <input type="submit" value="Log in" id="btn">
+                            <input type="submit" value="Log in" id="btn" asp-controller="Client" asp-action="Main_Client">
                         </div>
-                        <div class="group">
+                        @*<div class="group">
                             <a asp-controller="UserAuthentication" asp-action="registration">Create an account</a>
-                            @*<a href="/UserAuthentication/Registration">Sign Up</a>*@
-                        </div>
+                            @*<a href="/UserAuthentication/Registration">Sign Up</a>
+                        </div>*@
                     </div>
                 </form>
             </section>

@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-     pattern: "{controller=UserAuthentication}/{action=Login}"); //cuando se inicia se va al login directamente
+     pattern: "{controller=Home}/{action=Index}"); //cuando se inicia se va al login directamente
 
 app.Run();
