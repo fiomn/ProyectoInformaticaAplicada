@@ -1,41 +1,59 @@
 ﻿<head>
-    <link rel="stylesheet" type="text/css" src="/style.css"/>
+    <link rel="stylesheet" type="text/css" src="/style.css" />
 </head>
 
 <html>
 <body id="bodyLogin">
-    <section>
-        <form asp-action="Login" method="post">
-            <div class="login">
-                <h2>Sign In</h2>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/Admin/ClientList/"><img src="/resources/admin.png" id="imgAdmin"></a>
+            </nav>
+        </div>
+    </header>
+    <h1>SoftTech</h1>
+    <div>
+        <h6>Software Services Company</h6>
+    </div>    
+    <div class="container">
+        <div class="image-container">
+            <img src="/resources/image2.jpg" id="imageLogin" />
+        </div>
+        <div class="form-container">
+            <section>
+                <form asp-action="Login" method="post">
+                    <div class="login">
+                        <h2>Sign In</h2>
 
-                <div class="inputBox">
-                    <input type="text" autocomplete="off" placeholder="Username" />
-                    <div class="msg">
-                        <span class="err"></span>
+                        <div class="inputBox">
+                            <input type="text" autocomplete="off" placeholder="Username" />
+                            <div class="msg">
+                                <span class="err"></span>
+                            </div>
+                        </div>
+                        <div class="inputBox">
+                            <input type="password" autocomplete="off" placeholder="Password" />
+                            <div class="msg">
+                                <span class="err"></span>
+                            </div>
+                        </div>
+                        @if (TempData["msg"] != null)
+                        {
+                            <div class="msg">
+                                <span class="err">@TempData["msg"]</span>
+                            </div>
+                        }
+                        <div class="inputBox">
+                            <input type="submit" value="Log in" id="btn" asp-controller="Client" asp-action="Main_Client">
+                        </div>
+                        @*<div class="group">
+                            <a asp-controller="UserAuthentication" asp-action="registration">Create an account</a>
+                            @*<a href="/UserAuthentication/Registration">Sign Up</a>
+                        </div>*@
                     </div>
-                </div>
-                <div class="inputBox">
-                    <input type="password" autocomplete="off" placeholder="Password" />
-                    <div class="msg">
-                        <span class="err"></span>
-                    </div>
-                </div>
-                @if (TempData["msg"] != null)
-                {
-                    <div class="msg">
-                        <span class="err">@TempData["msg"]</span>
-                    </div>
-                }
-                <div class="inputBox">
-                    <input type="submit" value="login" id="btn">
-                </div>
-                <div class="group">
-                    <a asp-controller="userAuthentication" asp-action="recoveryPassword">Forgot your password?</a>
-                    <a href="/UserAuthentication/Registration">Sign Up</a>
-                </div>
-            </div>
-        </form>
-    </section>
+                </form>
+            </section>
+        </div>
+    </div>
 </body>
 </html>

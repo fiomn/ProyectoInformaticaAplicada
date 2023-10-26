@@ -1,5 +1,4 @@
 ﻿
-<!DOCTYPE html>
 
 <head>
     <link rel="stylesheet" type="text/css" src="/style.css" />
@@ -7,28 +6,28 @@
 
 <html>
 <body id="bodyRegis">
-    <section>
+    <section id="sectionR">
         <form asp-action="Registration" method="post">
             <div class="regis">
-                <h2>Registration</h2>
+                <h2>Registro</h2>
                 <div class="inputBoxR">
-                    <input type="text" autocomplete="off" placeholder="Name" >
+                    <input type="text" autocomplete="off" placeholder="nombre" >
                     <span class="text-danger"></span>
                 </div>
                 <div class="inputBoxR">
-                    <input type="text" autocomplete="off" placeholder="UserName">
+                    <input type="text" autocomplete="off" placeholder="usuario">
                     <span class="text-danger" ></span>
                 </div>
                 <div class="inputBoxR">
-                    <input type="text" autocomplete="off" placeholder="Email" >
+                    <input type="text" autocomplete="off" placeholder="correo" >
                     <span class="text-danger" ></span>
                 </div>
                 <div class="inputBoxR">
-                    <input type="password" autocomplete="off" placeholder="Password" >
+                    <input type="password" autocomplete="off" placeholder="contraseña" >
                     <span class="text-danger"></span>
                 </div>
                 <div class="inputBoxR">
-                    <input type="password" autocomplete="off" placeholder="Password Confirm" >
+                    <input type="password" autocomplete="off" placeholder="confirmar contraseña" >
                     <span class="text-danger" ></span>
                 </div>
 
@@ -39,13 +38,11 @@
                     </div>
                 }
                 <div class="inputBox">
-                    <input type="submit" value="Sign Up" id="btn">
+                    <input type="submit" value="Crear" id="btn">
                 </div>
-                <div class="groupP">
+               @* <div class="groupP">
                     <a href="/UserAuthentication/Login">Login</a>
-                </div>
-
-
+                </div>*@
             </div>
         </form>
 
