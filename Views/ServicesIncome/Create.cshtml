@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Add Expense";
+}
+
+<h2 class="text-center m-2">Ingresos por Servicios</h2>
+
+<br />
+<div class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-label">Cliente:</label>
+                    <input type="text" name="NumeroFactura" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-label">Cuenta de Depósito:</label>
+                    <input type="text" name="Cliente" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-label">Fecha de Pago:</label>
+                    <input type="date" name="Fecha" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-label">Forma de Pago:</label>
+                    <input type="number" name="Monto" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="form-label">N. de Referencia:</label>
+                    <input type="number" name="IVA" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <br /><br />
+        <label class="text-black"><strong>Detalles:</strong></label>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-label">Categoría</label>
+                    <input type="text" name="ServicioBrindado" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label class="form-label">Descripción</label>
+                    <input type="text" name="CuentaDeposito" class="form-control">
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="form-label">Monto</label>
+                    <input type="text" name="CuentaDeposito" class="form-control" required>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="form-group">
+                    <label class="form-label">IVA</label>
+                    <input type="text" name="CuentaDeposito" class="form-control" required>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group">
+                <div class="col-md-4">
+                    <label class="form-label">Factura Electronica:</label>
+                    <input type="file" name="invoice" class="form-control">
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="d-flex flex-row justify-content-end align-items-end">
+            <div class="col-md-2">
+                <input type="submit" value="Guardar" class="btn btn-dark m-2" />
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

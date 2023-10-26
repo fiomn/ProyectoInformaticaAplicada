@@ -1,0 +1,132 @@
+﻿@{
+    ViewData["Title"] = "Expenses";
+}
+
+<h2 class="text-center m-2">Gastos</h2>
+
+<button type="button" class="btn btn-dark" onclick="location.href='@Url.Action("Create", "Expenses")'">Añadir Gasto</button>
+
+<div class="btn-group">
+    <button id="options_btn" type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Filtrado de Datos
+    </button>
+    <ul class="dropdown-menu">
+        <li><a onclick="showFilter('date')" class="dropdown-item">Fecha</a></li>
+        <li><a onclick="showFilter('supplier')" class=" dropdown-item">Proveedor</a></li>
+        <li><a onclick="showFilter('category')" class="dropdown-item">Categoría</a></li>
+    </ul>
+</div>
+
+<br /><br />
+<div class="row">
+    <div id="div_filter_date" class="col-md-4">
+        <input placeholder="Ingrese una Fecha" type="date" id="filter_date" class="form-control">
+    </div>
+    <div id="div_filter_supplier" class="col-md-4">
+        <input placeholder="Ingrese el Proveedor" type="text" id="filter_supplier" class="form-control">
+    </div>
+    <div id="div_filter_category" class="col-md-4">
+        <input placeholder="Ingrese la Categoría" type="text" id="filter_category" class="form-control">
+    </div>
+</div>
+
+<br />
+<table class="table table-dark table-hover m-2">
+    <thead>
+        <tr>
+            <th scope="col">Fecha</th>
+            <th scope="col">N. de Referencia</th>
+            <th scope="col">Proveedor</th>
+            <th scope="col">Cuenta de Pago</th>
+            <th scope="col">Forma de Pago</th>
+            <th scope="col">Categoría</th>
+            <th scope="col">Monto</th>
+            <th scope="col">IVA</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>22/10/2023</td>
+            <td>#54575927</td>
+            <td>JASEC</td>
+            <td>CR****************3490</td>
+            <td>Efectivo</td>
+            <td>Electricidad</td>
+            <td>130000</td>
+            <td>13%</td>
+            <td>
+                <button type="button" class="btn btn-light">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        function showFilter(type) {
+            $("#div_filter_date, #div_filter_category, #div_filter_supplier").hide();
+
+            switch (type) {
+                case "date":
+                    $("#div_filter_date").show();
+                    $("#filter_supplier").val("");
+                    $("#filter_category").val("");
+                    $("#options_btn").text("Filtrado por Fecha");
+                    break;
+                case "supplier":
+                    $("#div_filter_supplier").show();
+                    $("#filter_category").val("");
+                    $("#filter_date").val("");
+                    $("#options_btn").text("Filtrado por Proveedor");
+                    break;
+                case "category":
+                    $("#div_filter_category").show();
+                    $("#filter_supplier").val("");
+                    $("#filter_date").val("");
+                    $("#options_btn").text("Filtrado por Categoría");
+                    break;
+            }
+        }
+
+        function filter(a, b) {
+            if (a.includes(b) || b === "") {
+                return true;
+            }
+            return false;
+        }
+
+        $(document).ready(function () {
+            $("#div_filter_date, #div_filter_category, #div_filter_supplier").hide();
+            // Al cambiar cualquier campo de filtro, aplicar el filtro
+            $("#filter_date, #filter_category, #filter_supplier").on("input", function () {
+                // Obtener los valores de los campos de filtro
+                var filter_date = $("#filter_date").val();
+                var formatted_date = "";
+                if (filter_date != "") {
+                    // Formatear la fecha al formato "dd/mm/yyyy"
+                    var date_parts = filter_date.split('-');
+                    if (date_parts.length === 3) {
+                        formatted_date = date_parts[2] + '/' + date_parts[1] + '/' + date_parts[0];
+                    }
+                }
+                var filter_category = $("#filter_category").val().toLowerCase(); // Convertir a minúsculas para ser insensible a mayúsculas
+                var filter_supplier = $("#filter_supplier").val().toLowerCase();
+
+                // Recorrer las filas de la tabla de datos
+                $(".table tbody tr").each(function () {
+                    var date = $(this).find("td:eq(0)").text();
+                    var category = $(this).find("td:eq(5)").text().toLowerCase();
+                    var supplier = $(this).find("td:eq(2)").text().toLowerCase();
+
+                    // Comprobar si la fila cumple con los criterios de filtro
+                    if (filter(date, formatted_date) && filter(category, filter_category) && filter(supplier, filter_supplier)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
+}
