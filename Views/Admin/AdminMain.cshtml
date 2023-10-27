@@ -1,0 +1,40 @@
+﻿<head>
+    <link rel="stylesheet" type="text/css" src="/style.css" />
+</head>
+
+<html>
+<body id="bodyAdmin">
+    <header>
+        <div class="container">
+            <nav>
+                <a style="color:black" asp-controller="ServicesIncome" asp-action="Index">Ingresos</a>
+                <a style="color:black" asp-controller="Expenses" asp-action="Index">Gastos</a>
+                <a style="color:black" asp-controller="IncomeStatement" asp-action="Index">Utilidades</a>
+            </nav>
+        </div>
+    </header>
+    <div class="container" id="containerImages">
+        <div class="d-flex justify-content-center">
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card" style="width:350px;height:400px">
+                        <a href="/Admin/ClientList"><img src="~/resources/clients.png" alt="Card image" id="imgs"/></a>
+                        <div class="card-body">
+                            <h4 class="card-title">Clientes</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 mb-4">
+                    <div class="card" style="width:350px;height:400px">
+                        <a href="/Admin/EmployeesList"><img src="~/resources/planilla.png" alt="Card image" id="imgs"/></a>
+                        <div class="card-body">
+                            <h4 class="card-title">Planilla</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

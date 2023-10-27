@@ -1,0 +1,53 @@
+﻿@model ProyectoAplicada.Models.Employees
+
+@{
+    ViewData["Title"] = "DetailsEmployee";
+}
+
+<h1>DetailsEmployee</h1>
+
+<div>
+    <h4>Employees</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Nombre
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.name)
+        </dd>
+        <dt class = "col-sm-2">
+            Telefono
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.tel)
+        </dd>
+        <dt class = "col-sm-2">
+            Correo electronico
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.email)
+        </dd>
+        <dt class = "col-sm-2">
+            Cedula
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.id)
+        </dd>
+        <dt class = "col-sm-2">
+            Direccion
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.address)
+        </dd>
+        <dt class = "col-sm-2">
+            Departamento
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.depto)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-controller="Admin" asp-action="EmployeesList">Lista</a>
+</div>

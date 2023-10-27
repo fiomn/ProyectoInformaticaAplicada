@@ -66,10 +66,17 @@ h1 {
         z-index: -1;
     }
 
+
+#bodyAdmin {
+    background-color: #FFC979;
+}
+
 #imgAdmin {
     width: 60px;
     height: 60px;
 }
+
+
 
 h3 {
     padding:25px;
@@ -154,7 +161,7 @@ p {
 #bodyLogin {
     position: relative;
     background: rgb(103,106,106);
-    background: linear-gradient(0deg, #FFC979 0%, #fff 12%);
+    background: linear-gradient(0deg, #FFC979 0%, #fff 25%);
 }
 
 #bodyRegis {
@@ -332,5 +339,36 @@ section {
         text-decoration: underline;
     }
 
+#containerImages {
+    margin-inline:180px;
+    margin-top:100px;
+}
 
+.card-body {
+    text-align: center;
+}
+
+#imgs {
+    padding: 60px;
+    border: none;
+    width:350px;
+}
+#imgs:hover{
+    background:linear-gradient(gray, white);
+}
+
+/*css para listas*/
+
+.table {
+    color: darkslategray;
+    
+}
+    .table th {
+        color: darkorange;
+        padding:30px;
+    }
+    .table td {
+        color: darkslategrey;
+        padding: 30px;
+    }
 

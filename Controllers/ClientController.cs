@@ -4,9 +4,10 @@ namespace ProyectoAplicada.Controllers
 {
     public class ClientController : Controller
     {
-        public IActionResult Main_Client()
+        public IActionResult MainClient()
         {
             return View();
         }
+
     }
 }

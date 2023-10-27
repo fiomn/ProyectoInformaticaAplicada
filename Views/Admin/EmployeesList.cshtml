@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ProyectoAplicada.Models.Client>
+﻿@model IEnumerable<ProyectoAplicada.Models.Employees>
 
 <head>
     <link rel="stylesheet" type="text/css" src="/style.css" />
@@ -13,26 +13,28 @@
 
         </div>
     </header>
-    <h2>Lista de clientes</h2>
-
+    <h2>Planilla</h2>
 
     <table class="table">
         <thead>
             <tr>
                 <th>
-                    Nombre Completo
-                </th>
-                <th>
-                    Teléfono
-                </th>
-                <th>
-                    Correo electrónico
+                    Nombre
                 </th>
                 <th>
                     Cédula
                 </th>
                 <th>
-                    Dirección
+                    Departamento
+                </th>
+                <th>
+                    Salario base
+                </th>
+                <th>
+                    Horas extras
+                </th>
+                <th>
+                    Total a pagar
                 </th>
                 <th></th>
             </tr>
@@ -42,24 +44,27 @@
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.tel)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.email)
+                       @Html.DisplayFor(modelItem => item.name)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.ced)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.address)
+                        @Html.DisplayFor(modelItem => item.depto)
                     </td>
                     <td>
-                        @Html.ActionLink("Actualizar", "EditClient", new {  id=item.id }) |
-                        @Html.ActionLink("Detalles", "DetailsClient", new { id=item.id }) |
-                        @Html.ActionLink("Eliminar", "DeleteClient", new { id=item.id })
+                        @("₡" + item.salarioB)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.horasExtras)
+                    </td>
+                    <td>
+                        @("₡"+item.total)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Actualizar", "EditEmployee", new { id=item.id }) |
+                        @Html.ActionLink("Detalles", "DetailsEmployee", new { id=item.id }) |
+                        @Html.ActionLink("Eliminar", "DeleteEmployee", new { id=item.id })
                     </td>
                 </tr>
             }
